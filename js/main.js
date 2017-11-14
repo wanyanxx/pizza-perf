@@ -446,25 +446,20 @@ var resizePizzas = function(size) {
 
     return dx;
   }
-  function getDomNodeArray(selector){
-    var eleCollection = document.querySelectorAll(selector);
-    var elemArray = Array.prototype.slice.apply(eleCollection);
-    return elemArray;
-  };
-  var divs  = getDomNodeArray('div');
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var newWidth = pizzaContainer.offsetWidth;
-    divs.forEach(function(elem,index,arr) {
-      elem.style.width = newWidth;     
-    }, this);
+    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var newwidth = randomPizzas.offsetWidth+dx+'px';
+    for(var i=0;i<randomPizzas.length;i++){
+      randomPizzas.style.width = newwidth;
+    }
     //for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       //var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       //var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       //document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
       
-    }
+    //}
   }
 
   changePizzaSizes(size);
